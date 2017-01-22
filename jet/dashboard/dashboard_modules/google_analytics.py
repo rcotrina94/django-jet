@@ -34,7 +34,8 @@ JET_MODULE_GOOGLE_ANALYTICS_CLIENT_SECRETS_FILE = getattr(
 
 
 class ModuleCredentialStorage(Storage):
-    def __init__(self, module):
+    def __init__(self, module, lock=None):
+        super(ModuleCredentialStorage, self).__init__(lock)
         self.module = module
 
     def locked_get(self):
